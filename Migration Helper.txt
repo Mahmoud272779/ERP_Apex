@@ -1,0 +1,4 @@
+Initiate Migration : Add-Migration MigrationName -OutputDir DirectoryPath -Context ContextName
+
+
+add-migration init -OutputDir persistence\Migrations\create -context applicationsqldbcontext

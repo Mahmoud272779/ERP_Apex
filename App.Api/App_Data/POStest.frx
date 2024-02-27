@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Name="InvioceReport" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="&#13;&#10;- go to &quot;Data&quot; menu and select &quot;Choose Report Data...&quot; item to select a datasource;&#13;&#10;- go to &quot;Report|Configure Bands...&quot; menu to create the band structure;&#13;&#10;- return to the report page, doubleclick the data band to show its editor;&#13;&#10;- choose the datasource;&#13;&#10;- drag data from the Data Dictionary window to the band." ReportInfo.Created="01/17/2008 03:05:57" ReportInfo.Modified="12/08/2022 13:25:11" ReportInfo.CreatorVersion="2022.3.11.0">
+  <Dictionary>
+    <TableDataSource Name="InvoiceDetails" ReferenceName="RefInvoiceDetails" DataType="System.Int32" Enabled="true">
+      <Column Name="InvoiceId" DataType="System.Int32"/>
+      <Column Name="ItemCode" DataType="System.String"/>
+      <Column Name="ItemNameAr" DataType="System.String"/>
+      <Column Name="Quantity" DataType="System.Double"/>
+      <Column Name="Price" DataType="System.Double"/>
+      <Column Name="Total" DataType="System.Double"/>
+      <Column Name="VatValue" DataType="System.Double"/>
+      <Column Name="ItemNameEn" DataType="System.String" PropName="Column"/>
+      <Column Name="DiscountValue" DataType="System.Double" PropName="Column"/>
+      <Column Name="Column" Alias="SerialNumbers" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="InvoiceMaster" ReferenceName="RefInvoiceMaster" DataType="System.Int32" Enabled="true">
+      <Column Name="InvoiceId" DataType="System.Int32"/>
+      <Column Name="InvoiceCode" DataType="System.String"/>
+      <Column Name="InvoiceDate" DataType="System.DateTime"/>
+      <Column Name="PersonNameAr" DataType="System.String"/>
+      <Column Name="PersonTaxNumber" DataType="System.String"/>
+      <Column Name="PersonAddressAr" DataType="System.String"/>
+      <Column Name="TotalDiscountValue" DataType="System.Double"/>
+      <Column Name="Net" DataType="System.Double"/>
+      <Column Name="TotalVat" DataType="System.Double"/>
+      <Column Name="PaymentType" DataType="System.Int32"/>
+      <Column Name="TotalPrice" DataType="System.Double"/>
+      <Column Name="Column" Alias="Paid" DataType="System.Double"/>
+      <Column Name="Column1" Alias="Remain" DataType="System.Double"/>
+    </TableDataSource>
+    <Relation Name="InvoiceMaster_InvoiceDetails2" ParentDataSource="InvoiceMaster" ChildDataSource="InvoiceDetails" ParentColumns="InvoiceId" ChildColumns="InvoiceId" Enabled="true"/>
+    <Parameter Name="Serials" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="95.2" PaperHeight="0" Guides="9.45,9.45,274.05,47.25,37.8,37.8" Watermark.Font="Arial, 60pt">
+    <DataBand Name="Data1" Width="284.26" Height="177.5" DataSource="InvoiceMaster">
+      <TextObject Name="Text61" Left="161.3" Top="158.6" Width="113.4" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" Text="رقم الفاتورة الضريبية" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text65" Left="9.45" Top="158.6" Width="151.2" Height="18.9" Border.Lines="All" Text="[InvoiceMaster.InvoiceCode]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text60" Left="161.3" Top="138.25" Width="113.4" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" Text="الكاشير" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text64" Left="10.45" Top="138.25" Width="151.2" Height="18.9" Border.Lines="All" Text="كاشير" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text59" Left="161.3" Top="117.45" Width="113.4" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" Text="التاريخ&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text63" Left="10.45" Top="117.45" Width="151.2" Height="18.9" Border.Lines="All" Text="[InvoiceMaster.InvoiceDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text58" Left="161.3" Top="96.65" Width="113.4" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" Text="الرقم الضريبي" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text62" Left="10.45" Top="96.65" Width="151.2" Height="18.9" Border.Lines="All" Text="4548979" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text49" Left="9.45" Top="50.09" Width="272.05" Height="27.08" Fill.Color="White" Text="فاتورة ضريبية مبسطة" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 11pt, style=Bold"/>
+      <TextObject Name="label2" Left="0.8" Top="22.39" Width="272.05" Height="27.08" Fill.Color="White" Text="تي تيك&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 11pt, style=Bold"/>
+      <DataBand Name="Data2" Top="213.85" Width="284.26" Height="37.8" Guides="18.9" DataSource="InvoiceDetails">
+        <TableObject Name="Table2" Left="10.24" Width="263.81" Height="37.8" Fill.Color="White" PrintOnParent="true" WrappedGap="37.8">
+          <TableColumn Name="Column8" Width="31.37"/>
+          <TableColumn Name="Column22" Width="31.37"/>
+          <TableColumn Name="Column24" Width="29.48"/>
+          <TableColumn Name="Column7" Width="31.37"/>
+          <TableColumn Name="Column6" Width="31.37"/>
+          <TableColumn Name="Column5" Width="108.85"/>
+          <TableRow Name="Row2" Height="37.8" AutoSize="true">
+            <TableCell Name="Cell28" Text="[[InvoiceDetails.Price]*[InvoiceDetails.Quantity]]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+            <TableCell Name="Cell82" Text="[InvoiceDetails.VatValue]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+            <TableCell Name="Cell84" Text="[InvoiceDetails.DiscountValue]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+            <TableCell Name="Cell27" Text="[InvoiceDetails.Price]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+            <TableCell Name="Cell26" Text="[InvoiceDetails.Quantity]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+            <TableCell Name="Cell25" Text="[InvoiceDetails.ItemNameAr] [IIf(Length([InvoiceDetails.SerialNumbers])&gt;0 ,&quot;\r\n&quot;+Replace([InvoiceDetails.SerialNumbers],&quot;,&quot;,&quot;\r\n&quot;),&quot;&quot;)]&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          </TableRow>
+        </TableObject>
+        <DataHeaderBand Name="DataHeader1" Top="181.5" Width="284.26" Height="28.35">
+          <TableObject Name="Table1" Left="9.45" Top="9.45" Width="264.6" Height="18.9" Border.Lines="Top, Bottom" Fill.Color="White" PrintOnParent="true">
+            <TableColumn Name="Column3" Width="32.13"/>
+            <TableColumn Name="Column21" Width="32.13"/>
+            <TableColumn Name="Column23" Width="28.35"/>
+            <TableColumn Name="Column4" Width="32.13"/>
+            <TableColumn Name="Column2" Width="32.13"/>
+            <TableColumn Name="Column1" Width="107.73"/>
+            <TableRow Name="Row1">
+              <TableCell Name="Cell24" Fill.Color="LightGray" Text="إجمالى" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell81" Fill.Color="LightGray" Text="ق.م&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell83" Fill.Color="LightGray" Text="خصم" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell23" Fill.Color="LightGray" Text="السعر" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell22" Fill.Color="LightGray" Text="الكمية" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell1" Fill.Color="LightGray" Text="الصنف" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            </TableRow>
+          </TableObject>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="255.65" Width="284.26" Height="202.8">
+      <TextObject Name="Text41" Left="160.3" Top="9.45" Width="113.4" Height="18.9" Fill.Color="Gainsboro" Text=": اجمالي الفاتورة" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text42" Left="18.9" Top="9.45" Width="75.6" Height="18.9" Text="[InvoiceMaster.TotalPrice]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text43" Left="160.3" Top="30.25" Width="113.4" Height="18.9" Fill.Color="Gainsboro" Text=": الخصم&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text44" Left="18.9" Top="30.25" Width="75.6" Height="18.9" Text="[InvoiceMaster.TotalDiscountValue]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text50" Left="160.3" Top="51.05" Width="113.4" Height="18.9" Fill.Color="Gainsboro" Text=": الاجمالي بعد الخصم" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text51" Left="18.9" Top="51.05" Width="75.6" Height="18.9" Text="[Abs([InvoiceMaster.TotalPrice]-[InvoiceMaster.TotalDiscountValue])]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text52" Left="160.3" Top="73.4" Width="113.4" Height="18.9" Fill.Color="Gainsboro" Text=": الاجمالي قبل الضريبة" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text53" Left="17.9" Top="73.4" Width="75.6" Height="18.9" Text="[Abs([InvoiceMaster.Net]-[InvoiceMaster.TotalVat])]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text47" Left="94.15" Top="95.3" Width="179.55" Height="18.9" Fill.Color="Gainsboro" Text="% يشمل ضريبة القيمة المضافة 15" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text48" Left="20.1" Top="95.3" Width="75.6" Height="18.9" Text="[InvoiceMaster.TotalVat]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text45" Left="160.3" Top="117.1" Width="113.4" Height="18.9" Fill.Color="Gainsboro" Text=": صافي الفاتورة" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text46" Left="26" Top="117.1" Width="132.3" Height="18.9" Text="[InvoiceMaster.Net]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text36" Left="18.55" Top="141.75" Width="255.15" Height="28.35" Fill.Color="White" Text="ريال" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text54" Left="226.45" Top="173.45" Width="56.7" Height="18.9" Fill.Color="Gainsboro" Text=":المدفوع" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text55" Left="151.2" Top="174.45" Width="75.6" Height="18.9" Text="[InvoiceMaster.Paid]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text56" Left="84.7" Top="173.45" Width="56.7" Height="18.9" Fill.Color="Gainsboro" Text="المتبقي" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text57" Left="9.45" Top="174.45" Width="75.6" Height="18.9" Text="[InvoiceMaster.Remain]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <ChildBand Name="Child1" Top="462.45" Width="284.26" Height="81.05">
+        <TextObject Name="Text39" Left="47.25" Top="9.45" Width="189" Height="18.9" Text="4589332178" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text40" Left="9.45" Top="43.25" Width="274.05" Height="37.8" Text="Nasr City" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      </ChildBand>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="547.5" Width="284.26" Height="217.35">
+      <TextObject Name="Text38" Left="66.15" Top="179.55" Width="132.3" Height="18.9" Text="شكراً لزيارتكم" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

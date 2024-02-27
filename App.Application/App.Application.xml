@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.Application</name>
+    </assembly>
+    <members>
+        <member name="M:App.Application.Helpers.DateTimeHelper.convertMinutesToHours(System.Int32)">
+            <summary>
+            Convert Minutes to HH:MM
+            </summary>
+            <param name="mins"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Application.Helpers.DateTimeHelper.ConvertDateToDateAddDay(System.String,System.Double)">
+            <summary>
+            Convert DateTime (yyyy-MM-dd hh:mm tt)
+            </summary>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Application.Helpers.DateTimeHelper.ConvertDateToDate(System.String)">
+            <summary>
+            Convert DateTime (yyyy-MM-dd hh:mm tt) to (yyyy-MM-dd)
+            </summary>
+            <param name="Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Application.Helpers.DateTimeHelper.ConvertDateToDateTime(System.String)">
+            <summary>
+            Convert DateTime (yyyy-MM-dd)
+            </summary>
+            <param name="_DateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Application.Helpers.DateTimeHelper.ConvertDateToDateTimeSec(System.String)">
+            <summary>
+            Convert DateTime to yyyy-MM-dd hh:mm:ss tt (yyyy-MM-dd)
+            </summary>
+            <param name="_DateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.EnsureSubscriberEmailOrThrow(System.String)">
+            
+             
+             
+             
+            <summary>
+            Ensures the subscriber email or throw.
+            </summary>
+            <param name="email">The email.</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.IsValidEmail(System.String)">
+            <summary>
+            Verifies that a string is in valid e-mail format
+            </summary>
+            <param name="email">Email to verify</param>
+            <returns>true if the string is a valid e-mail address and false if it's not</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.IsValidIpAddress(System.String)">
+            <summary>
+            Verifies that string is an valid IP-Address
+            </summary>
+            <param name="ipAddress">IPAddress to verify</param>
+            <returns>true if the string is a valid IpAddress and false if it's not</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.GenerateRandomDigitCode(System.Int32)">
+            <summary>
+            Generate random digit code
+            </summary>
+            <param name="length">Length</param>
+            <returns>Result string</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.GenerateRandomInteger(System.Int32,System.Int32)">
+            <summary>
+            Returns an random integer number within a specified rage
+            </summary>
+            <param name="min">Minimum number</param>
+            <param name="max">Maximum number</param>
+            <returns>Result</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.EnsureMaximumLength(System.String,System.Int32,System.String)">
+            <summary>
+            Ensure that a string doesn't exceed maximum allowed length
+            </summary>
+            <param name="str">Input string</param>
+            <param name="maxLength">Maximum length</param>
+            <param name="postfix">A string to add to the end if the original string was shorten</param>
+            <returns>Input string if its length is OK; otherwise, truncated input string</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.EnsureNumericOnly(System.String)">
+            <summary>
+            Ensures that a string only contains numeric values
+            </summary>
+            <param name="str">Input string</param>
+            <returns>Input string with only numeric values, empty string if input is null/empty</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.EnsureNotNull(System.String)">
+            <summary>
+            Ensure that a string is not null
+            </summary>
+            <param name="str">Input string</param>
+            <returns>Result</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.AreNullOrEmpty(System.String[])">
+            <summary>
+            Indicates whether the specified strings are null or empty strings
+            </summary>
+            <param name="stringsToValidate">Array of strings to validate</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.ArraysEqual``1(``0[],``0[])">
+            <summary>
+            Compare two arrays
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="a1">Array 1</param>
+            <param name="a2">Array 2</param>
+            <returns>Result</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.SetProperty(System.Object,System.String,System.Object)">
+            <summary>
+            Sets a property on an object to a value.
+            </summary>
+            <param name="instance">The object whose property to set.</param>
+            <param name="propertyName">The name of the property to set.</param>
+            <param name="value">The value to set the property to.</param>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.To(System.Object,System.Type)">
+            <summary>
+            Converts a value to a destination type.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="destinationType">The type to convert the value to.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.To(System.Object,System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value to a destination type.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="destinationType">The type to convert the value to.</param>
+            <param name="culture">Culture</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.To``1(System.Object)">
+            <summary>
+            Converts a value to a destination type.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <typeparam name="T">The type to convert the value to.</typeparam>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.ConvertEnum(System.String)">
+            <summary>
+            Convert enum for front-end
+            </summary>
+            <param name="str">Input string</param>
+            <returns>Converted string</returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.GetDifferenceInYears(System.DateTime,System.DateTime)">
+            <summary>
+            Get difference in years
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Application.Helpers.ValidationHelper.GetPrivateFieldValue(System.Object,System.String)">
+            <summary>
+            Get private fields property value
+            </summary>
+            <param name="target">Target object</param>
+            <param name="fieldName">Field name</param>
+            <returns>Value</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="M:App.Infrastructure.Helpers.OracleMigrationHelpers.AddColumnIfNotExists(System.String,System.String)">
+            <summary> AddColumnIfNotExists
+            Add Column If Not Exists
+            </summary>
+            <param name="tableName"> Specified Table For The Column To be added </param>
+            <param name="columnNameWithDT"> Column Name With Its Data Type And Constraints </param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Helpers.OracleMigrationHelpers.AddSequenceIfNotExists(System.String,System.Int32,System.Int32)">
+            <summary> AddSequenceIfNotExists
+            Check For Sequence If Created Or Not
+            If Not Then Create New Sequence
+            </summary>
+            <param name="sequenceName"> Sequence Should Be Name Of Table Plus _SEQ </param>
+            <param name="startWith"> The First Number To Be Iterate After </param>
+            <param name="minValue"> Minimum Value </param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Helpers.OracleMigrationHelpers.AddTriggerForSequence(System.String,System.String,System.String)">
+            <summary> AddTriggerForSequence
+            Create Trigger To Fire Sequence Each Time There is an insert on database
+            </summary>
+            <param name="tableName"> Table To Be Triggered </param>
+            <param name="sequenceName"> Sequence Thats Created For Table  </param>
+            <param name="columnToBeSequenced"> Auto Incremental Column ( Should Be The Primary Key
+            ) </param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Helpers.OracleMigrationHelpers.AddRowIfNotExists(System.String,System.String,System.String,System.String)">
+            <summary> AddRowIfNotExists
+            Check if row is exists then insert it
+            </summary>
+            <param name="tableName">example : Table1</param>
+            <param name="columns">example : col1,col2,col3</param>
+            <param name="values">example : 'val1',val2</param>
+            <param name="condition">example : id=1 and name = 'ahmed'</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Helpers.SqlMigrationHelper.AddSchemaIfNotExists(System.String)">
+            <summary>
+            Add Schema If Not Exists
+            </summary>
+            <param name="SchemaName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Helpers.SqlMigrationHelper.AddColumnIfNotExists(System.String,System.String,System.String,System.String)">
+            <summary> AddColumnIfNotExists
+            Add Column If Not Exists
+            </summary>
+            <param name="tableName"> Specified Table For The Column To be added </param>
+            <param name="columnNameWithDT"> Column Name With Its Data Type And Constraints </param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Helpers.SqlMigrationHelper.AddSequenceIfNotExists(System.String,System.Int32,System.Int32)">
+            <summary> AddSequenceIfNotExists
+            Check For Sequence If Created Or Not
+            If Not Then Create New Sequence
+            </summary>
+            <param name="sequenceName"> Sequence Should Be Name Of Table Plus _SEQ </param>
+            <param name="startWith"> The First Number To Be Iterate After </param>
+            <param name="minValue"> Minimum Value </param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Helpers.SqlMigrationHelper.AddTriggerForSequence(System.String,System.String,System.String)">
+            <summary> AddTriggerForSequence
+            Create Trigger To Fire Sequence Each Time There is an insert on database
+            </summary>
+            <param name="tableName"> Table To Be Triggered </param>
+            <param name="sequenceName"> Sequence Thats Created For Table  </param>
+            <param name="columnToBeSequenced"> Auto Incremental Column ( Should Be The Primary Key
+            ) </param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Helpers.SqlMigrationHelper.AddRowIfNotExists(System.String,System.String,System.String,System.String)">
+            <summary> AddRowIfNotExists
+            Check if row is exists then insert it
+            </summary>
+            <param name="tableName">example : Table1</param>
+            <param name="columns">example : col1,col2,col3</param>
+            <param name="values">example : 'val1',val2</param>
+            <param name="condition">example : id=1 and name = 'ahmed'</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Interfaces.Repository.IRepositoryCommand`1.SaveChanges">
+            <summary>
+            Insert entity to db
+            </summary>
+            <param name="entity"></param>
+            
+            
+        </member>
+        <member name="M:App.Infrastructure.Interfaces.Repository.IRepositoryCommand`1.UpdateAsyn(`0)">
+            <summary>
+            Update entity in db
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:App.Infrastructure.Interfaces.Repository.IRepositoryCommand`1.DeleteAsync(System.Object)">
+            <summary>
+            Delete entity from db by primary key
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:App.Infrastructure.Interfaces.Repository.IRepositoryQuery`1.GetByIdAsync(System.Object)">
+            <summary>
+            Get entity by identifier
+            </summary>
+            <param name="id">Identifier</param>
+            <returns>Entity</returns>
+        </member>
+        <member name="M:App.Infrastructure.Interfaces.Repository.IRepositoryQuery`1.GetFirstOrDefault``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            Get single entity by primary key
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <summary>
+            Get first or default entity by filter
+            </summary>
+            <param name="filter"></param>
+            <param name="includes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.Infrastructure.Reposiotries.Configuration.RepositoryCommand`1.SaveChanges">
+            <summary>
+            Rollback of entity changes and return full error message
+            </summary>
+            <param name="exception">Exception</param>
+            <returns>Error message</returns>
+            
+        </member>
+        <member name="M:App.Infrastructure.Reposiotries.Configuration.RepositoryCommand`1.Dispose(System.Boolean)">
+            <summary>
+            ////////////////////////////////
+            </summary>
+            <param name="disposing"></param>
+        </member>
+    </members>
+</doc>

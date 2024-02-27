@@ -1,0 +1,14 @@
+﻿// This file is used by Code Analysis to maintain SuppressMessage
+// attributes that are applied to this project.
+// Project-level suppressions either have no target or are given
+// a specific target and scoped to a namespace, type, member, etc.
+
+using System.Diagnostics.CodeAnalysis;
+
+[assembly: SuppressMessage("Build", "CA1416:This call site is reachable on all platforms. 'PixelOffsetMode.HighQuality' is only supported on: 'windows'.", Justification = "<Pending>", Scope = "member", Target = "~M:App.Application.Helpers.Helpers.Resize(System.Drawing.Image,System.Int32,System.Int32)~System.Drawing.Image")]
+[assembly: SuppressMessage("Build", "CA1416:This call site is reachable on all platforms. 'Image.Save(string)' is only supported on: 'windows'.", Justification = "<Pending>", Scope = "member", Target = "~M:App.Application.Helpers.Service_helper.FileHandler.FileHandler.SaveImage(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Boolean)~System.String")]
+[assembly: SuppressMessage("Build", "CA1416:This call site is reachable on all platforms. 'Image.Save(string)' is only supported on: 'windows'.", Justification = "<Pending>", Scope = "member", Target = "~M:App.Application.Helpers.Service_helper.SaveImage.saveImage(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Boolean,Microsoft.AspNetCore.Hosting.IHostingEnvironment)~System.String")]
+[assembly: SuppressMessage("Build", "CA1416:This call site is reachable on all platforms. 'ImageFormat.Png' is only supported on: 'windows'.", Justification = "<Pending>", Scope = "member", Target = "~M:App.Application.Services.Printing.QRCode.GetQRCode(System.String,System.String,System.String,System.String,System.String)~System.Byte[]")]
+[assembly: SuppressMessage("Build", "CA1416:This call site is reachable on all platforms. 'Image.Save(string)' is only supported on: 'windows'.", Justification = "<Pending>", Scope = "member", Target = "~M:App.Application.Services.Process.BarCode.BarCodeService.AddBarCode(App.Domain.Models.Security.Authentication.Request.AddBarCodeRequest)~System.Threading.Tasks.Task{App.Domain.Models.Shared.ResponseResult}")]
+[assembly: SuppressMessage("Build", "CA1416:This call site is reachable on all platforms. 'PrintDocument.PrinterSettings' is only supported on: 'windows'.", Justification = "<Pending>", Scope = "member", Target = "~M:App.Application.Services.Process.BarCode.BarCodeService.InstalledPrinters~System.Threading.Tasks.Task{App.Domain.Models.Shared.ResponseResult}")]
+[assembly: SuppressMessage("Build", "CA1416:This call site is reachable on all platforms. 'Image.Save(string)' is only supported on: 'windows'.", Justification = "<Pending>", Scope = "member", Target = "~M:App.Application.Services.Process.BarCode.BarCodeService.updateBarCode(App.Domain.Models.Security.Authentication.Request.UpdateBarCodeRequest)~System.Threading.Tasks.Task{App.Domain.Models.Shared.ResponseResult}")]

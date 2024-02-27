@@ -1,0 +1,532 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<LangVersion>preview</LangVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <!--<SpaRoot>ClientApp\</SpaRoot>-->
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    <UserSecretsId>f11c3879-fd4d-415c-aee7-cf2e7a9e48ac</UserSecretsId>
+    <Nullable>annotations</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>C:\App.Api.xml</DocumentationFile>
+    <!-- <GenerateDocumentationFile>True</GenerateDocumentationFile> -->
+    <!-- <DocumentationFile>:\DocFile\App.Api.xml</DocumentationFile> -->
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <!--<DocumentationFile>C:\Users\ahmed\source\repos\050515\newERP\App.Api\App.Api.xml</DocumentationFile>-->
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>full</DebugType>
+    <DefineConstants>NET6_0</DefineConstants>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <!--<DocumentationFile>C:\Users\ahmed\source\repos\050515\newERP\App.Api\App.Api.xml</DocumentationFile> -->
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>False</Optimize>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <DebugType>full</DebugType>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\Process\Store\ReportsControllers\Purchases\**" />
+    <Compile Remove="Controllers\Process\Store\ReportsControllers\Stores\**" />
+    <Content Remove="Controllers\Process\Store\ReportsControllers\Purchases\**" />
+    <Content Remove="Controllers\Process\Store\ReportsControllers\Stores\**" />
+    <EmbeddedResource Remove="Controllers\Process\Store\ReportsControllers\Purchases\**" />
+    <EmbeddedResource Remove="Controllers\Process\Store\ReportsControllers\Stores\**" />
+    <None Remove="Controllers\Process\Store\ReportsControllers\Purchases\**" />
+    <None Remove="Controllers\Process\Store\ReportsControllers\Stores\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\App_Data\Badges.frx" />
+    <Content Remove="wwwroot\App_Data\Cascaded Data Filtering.frx" />
+    <Content Remove="wwwroot\App_Data\Chart.frx" />
+    <Content Remove="wwwroot\App_Data\Complex (Hyperlinks, Outline, TOC).frx" />
+    <Content Remove="wwwroot\App_Data\Complex (Master-detail + Group).frx" />
+    <Content Remove="wwwroot\App_Data\CustomresInvioceReport.frx" />
+    <Content Remove="wwwroot\App_Data\Dialog Elements.frx" />
+    <Content Remove="wwwroot\App_Data\Drill-Down Groups.frx" />
+    <Content Remove="wwwroot\App_Data\Filtering with CheckedListBox.frx" />
+    <Content Remove="wwwroot\App_Data\Filtering with Ranges.frx" />
+    <Content Remove="wwwroot\App_Data\Handle Dialog Forms.frx" />
+    <Content Remove="wwwroot\App_Data\Hello, FastReport!.frx" />
+    <Content Remove="wwwroot\App_Data\Hyperlinks, Bookmarks.frx" />
+    <Content Remove="wwwroot\App_Data\Index.html" />
+    <Content Remove="wwwroot\App_Data\Index2.html" />
+    <Content Remove="wwwroot\App_Data\Interactive Report, 2-in-1.frx" />
+    <Content Remove="wwwroot\App_Data\InvioceReport.frx" />
+    <Content Remove="wwwroot\App_Data\InvoicePrint.pdf" />
+    <Content Remove="wwwroot\App_Data\IronPdfprint.pdf" />
+    <Content Remove="wwwroot\App_Data\Labels.frx" />
+    <Content Remove="wwwroot\App_Data\Mail Merge.frx" />
+    <Content Remove="wwwroot\App_Data\nwind.xml" />
+    <Content Remove="wwwroot\App_Data\Persons.frx" />
+    <Content Remove="wwwroot\App_Data\PersonsPrint.pdf" />
+    <Content Remove="wwwroot\App_Data\Polygon.frx" />
+    <Content Remove="wwwroot\App_Data\POS.frx" />
+    <Content Remove="wwwroot\App_Data\POStest.frx" />
+    <Content Remove="wwwroot\App_Data\Print Entered Value.frx" />
+    <Content Remove="wwwroot\App_Data\print.docx" />
+    <Content Remove="wwwroot\App_Data\PurchasesInvioceReport.frx" />
+    <Content Remove="wwwroot\App_Data\SalesInvioceReport.frx" />
+    <Content Remove="wwwroot\App_Data\Simple List.frx" />
+    <Content Remove="wwwroot\App_Data\Simple List2.frx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    <PackageReference Include="UAParser" Version="3.1.47" />
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    -->
+    <!-- Don't publish the SPA source files, but do show them in the project files list --><!--
+    <Compile Remove="ClientApp\**" />
+    <Compile Remove="CorrepondenceApp\**" />
+    <Compile Remove="Pages\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\**" />
+    <Content Remove="CorrepondenceApp\**" />
+    <Content Remove="Pages\**" />
+    <EmbeddedResource Remove="ClientApp\**" />
+    <EmbeddedResource Remove="CorrepondenceApp\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\**" />
+    <None Remove="CorrepondenceApp\**" />
+    <None Remove="Pages\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\.angulardoc.json" />
+    <None Remove="ClientApp\.angulardoc.json" />
+    <None Remove="ClientApp\.editorconfig" />
+    <None Remove="ClientApp\.gitignore" />
+    <None Remove="ClientApp\angular.json" />
+    <None Remove="ClientApp\angular.json" />
+    <None Remove="ClientApp\browserslist" />
+    <None Remove="ClientApp\e2e\protractor.conf.js" />
+    <None Remove="ClientApp\e2e\src\app.e2e-spec.ts" />
+    <None Remove="ClientApp\e2e\src\app.po.ts" />
+    <None Remove="ClientApp\e2e\tsconfig.e2e.json" />
+    <None Remove="ClientApp\e2e\tsconfig.e2e.json" />
+    <None Remove="ClientApp\e2e\tsconfig.json" />
+    <None Remove="ClientApp\e2e\tsconfig.json" />
+    <None Remove="ClientApp\karma.conf.js" />
+    <None Remove="ClientApp\package-lock.json" />
+    <None Remove="ClientApp\package-lock.json" />
+    <None Remove="ClientApp\package.json" />
+    <None Remove="ClientApp\package.json" />
+    <None Remove="ClientApp\README.md" />
+    <None Remove="ClientApp\src\app\app-routing.module.ts" />
+    <None Remove="ClientApp\src\app\app.component.html" />
+    <None Remove="ClientApp\src\app\app.component.scss" />
+    <None Remove="ClientApp\src\app\app.component.spec.ts" />
+    <None Remove="ClientApp\src\app\app.component.ts" />
+    <None Remove="ClientApp\src\app\app.module.ts" />
+    <None Remove="ClientApp\src\app\counter\counter.component.html" />
+    <None Remove="ClientApp\src\app\counter\counter.component.spec.ts" />
+    <None Remove="ClientApp\src\app\counter\counter.component.ts" />
+    <None Remove="ClientApp\src\app\fetch-data\fetch-data.component.html" />
+    <None Remove="ClientApp\src\app\fetch-data\fetch-data.component.ts" />
+    <None Remove="ClientApp\src\app\helper\Components\confirmationDialog\confirmationDialog.component.css" />
+    <None Remove="ClientApp\src\app\helper\Components\confirmationDialog\confirmationDialog.component.html" />
+    <None Remove="ClientApp\src\app\helper\Components\confirmationDialog\confirmationDialog.component.spec.ts" />
+    <None Remove="ClientApp\src\app\helper\Components\confirmationDialog\confirmationDialog.component.ts" />
+    <None Remove="ClientApp\src\app\helper\Excel\ExcelUtilt.ts" />
+    <None Remove="ClientApp\src\app\helper\Excel\services\excel.service.spec.ts" />
+    <None Remove="ClientApp\src\app\helper\Excel\services\excel.service.ts" />
+    <None Remove="ClientApp\src\app\helper\Models\DropDowns\asset-dropdown-filters.model.js" />
+    <None Remove="ClientApp\src\app\helper\Models\DropDowns\asset-dropdown-filters.model.js.map" />
+    <None Remove="ClientApp\src\app\helper\Models\DropDowns\asset-dropdown-filters.model.ts" />
+    <None Remove="ClientApp\src\app\helper\Models\Notifications\notification.modelng.spec.ts" />
+    <None Remove="ClientApp\src\app\helper\Models\Notifications\notification.modelng.ts" />
+    <None Remove="ClientApp\src\app\helper\Models\Pagination\Pagination-vm.model.ts" />
+    <None Remove="ClientApp\src\app\helper\Models\Pagination\Pagination.modelng.ts" />
+    <None Remove="ClientApp\src\app\helper\Services\Notifications\Notifications.service.spec.ts" />
+    <None Remove="ClientApp\src\app\helper\Services\Notifications\Notifications.service.ts" />
+    <None Remove="ClientApp\src\app\helper\Services\Pagination\pagination.service.ts" />
+    <None Remove="ClientApp\src\app\home\home.component.html" />
+    <None Remove="ClientApp\src\app\home\home.component.ts" />
+    <None Remove="ClientApp\src\app\layout\content\content.component.css" />
+    <None Remove="ClientApp\src\app\layout\content\content.component.html" />
+    <None Remove="ClientApp\src\app\layout\content\content.component.ts" />
+    <None Remove="ClientApp\src\app\layout\footer\footer.component.html" />
+    <None Remove="ClientApp\src\app\layout\footer\footer.component.ts" />
+    <None Remove="ClientApp\src\app\layout\login-layout\login-layout.component.css" />
+    <None Remove="ClientApp\src\app\layout\login-layout\login-layout.component.html" />
+    <None Remove="ClientApp\src\app\layout\login-layout\login-layout.component.js" />
+    <None Remove="ClientApp\src\app\layout\login-layout\login-layout.component.js.map" />
+    <None Remove="ClientApp\src\app\layout\login-layout\login-layout.component.ts" />
+    <None Remove="ClientApp\src\app\layout\material\material.module.js" />
+    <None Remove="ClientApp\src\app\layout\material\material.module.js.map" />
+    <None Remove="ClientApp\src\app\layout\material\material.module.ts" />
+    <None Remove="ClientApp\src\app\layout\navbar\navbar.component.css" />
+    <None Remove="ClientApp\src\app\layout\navbar\navbar.component.html" />
+    <None Remove="ClientApp\src\app\layout\navbar\navbar.component.js" />
+    <None Remove="ClientApp\src\app\layout\navbar\navbar.component.js.map" />
+    <None Remove="ClientApp\src\app\layout\navbar\navbar.component.ts" />
+    <None Remove="ClientApp\src\app\layout\pagetitle\pagetitle.component.css" />
+    <None Remove="ClientApp\src\app\layout\pagetitle\pagetitle.component.html" />
+    <None Remove="ClientApp\src\app\layout\pagetitle\pagetitle.component.ts" />
+    <None Remove="ClientApp\src\app\layout\print-documents\header\header.component.css" />
+    <None Remove="ClientApp\src\app\layout\print-documents\header\header.component.html" />
+    <None Remove="ClientApp\src\app\layout\print-documents\header\header.component.spec.ts" />
+    <None Remove="ClientApp\src\app\layout\print-documents\header\header.component.ts" />
+    <None Remove="ClientApp\src\app\layout\print-documents\print-documents.component.css" />
+    <None Remove="ClientApp\src\app\layout\print-documents\print-documents.component.html" />
+    <None Remove="ClientApp\src\app\layout\print-documents\print-documents.component.spec.ts" />
+    <None Remove="ClientApp\src\app\layout\print-documents\print-documents.component.ts" />
+    <None Remove="ClientApp\src\app\layout\print-documents\print-footer\print-footer.component.css" />
+    <None Remove="ClientApp\src\app\layout\print-documents\print-footer\print-footer.component.html" />
+    <None Remove="ClientApp\src\app\layout\print-documents\print-footer\print-footer.component.spec.ts" />
+    <None Remove="ClientApp\src\app\layout\print-documents\print-footer\print-footer.component.ts" />
+    <None Remove="ClientApp\src\app\layout\print-layout\print-layout.component.css" />
+    <None Remove="ClientApp\src\app\layout\print-layout\print-layout.component.html" />
+    <None Remove="ClientApp\src\app\layout\print-layout\print-layout.component.spec.ts" />
+    <None Remove="ClientApp\src\app\layout\print-layout\print-layout.component.ts" />
+    <None Remove="ClientApp\src\app\layout\print-layout\print.service.spec.ts" />
+    <None Remove="ClientApp\src\app\layout\print-layout\print.service.ts" />
+    <None Remove="ClientApp\src\app\layout\print-layout\rpt-asset-card\rpt-asset-card.component.css" />
+    <None Remove="ClientApp\src\app\layout\print-layout\rpt-asset-card\rpt-asset-card.component.html" />
+    <None Remove="ClientApp\src\app\layout\print-layout\rpt-asset-card\rpt-asset-card.component.spec.ts" />
+    <None Remove="ClientApp\src\app\layout\print-layout\rpt-asset-card\rpt-asset-card.component.ts" />
+    <None Remove="ClientApp\src\app\layout\sidebar\sidebar.component.css" />
+    <None Remove="ClientApp\src\app\layout\sidebar\sidebar.component.html" />
+    <None Remove="ClientApp\src\app\layout\sidebar\sidebar.component.ts" />
+    <None Remove="ClientApp\src\app\lazy-load-script.service.spec.ts" />
+    <None Remove="ClientApp\src\app\lazy-load-script.service.ts" />
+    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.css" />
+    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.html" />
+    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
+    <None Remove="ClientApp\src\app\Security\Models\application-user.model.ts" />
+    <None Remove="ClientApp\src\app\Security\Models\BranchData-vm.ts" />
+    <None Remove="ClientApp\src\app\Security\Models\permissions-vm.ts" />
+    <None Remove="ClientApp\src\app\Security\Service\auth.guard.ts" />
+    <None Remove="ClientApp\src\app\Security\Service\auth.interceptor.ts" />
+    <None Remove="ClientApp\src\app\Security\Service\authentication.service.ts" />
+    <None Remove="ClientApp\src\app\Security\Service\authorization.service.ts" />
+    <None Remove="ClientApp\src\app\Security\Service\user-auth.service.ts" />
+    <None Remove="ClientApp\src\app\Shared\Directives\prevent-keys.directive.spec.ts" />
+    <None Remove="ClientApp\src\app\Shared\Directives\prevent-keys.directive.ts" />
+    <None Remove="ClientApp\src\app\Shared\Enums\enumPeriods.enum.ts" />
+    <None Remove="ClientApp\src\app\Shared\Enums\enumRequest.enum.ts" />
+    <None Remove="ClientApp\src\app\Shared\Enums\enumSetupPages.enum.ts" />
+    <None Remove="ClientApp\src\app\Shared\Enums\eqpTaskEnums.enum.ts" />
+    <None Remove="ClientApp\src\app\Shared\Enums\systemOptions.enum.ts" />
+    <None Remove="ClientApp\src\app\Shared\format-datepicker.ts" />
+    <None Remove="ClientApp\src\app\Shared\Loader\Components\loader\loader.component.css" />
+    <None Remove="ClientApp\src\app\Shared\Loader\Components\loader\loader.component.html" />
+    <None Remove="ClientApp\src\app\Shared\Loader\Components\loader\loader.component.scss" />
+    <None Remove="ClientApp\src\app\Shared\Loader\Components\loader\loader.component.ts" />
+    <None Remove="ClientApp\src\app\Shared\Loader\Services\loader.service.ts" />
+    <None Remove="ClientApp\src\app\Shared\Models\AttachmentInfo.ts" />
+    <None Remove="ClientApp\src\app\Shared\Models\Branches.ts" />
+    <None Remove="ClientApp\src\app\Shared\Models\CurrencyDetails.ts" />
+    <None Remove="ClientApp\src\app\Shared\Models\EventDataModel.ts" />
+    <None Remove="ClientApp\src\app\Shared\Models\GenericSetupModelsVM.ts" />
+    <None Remove="ClientApp\src\app\Shared\Models\key-value.model.ts" />
+    <None Remove="ClientApp\src\app\Shared\Models\SetupVM.ts" />
+    <None Remove="ClientApp\src\app\Shared\Models\TreeStpVM.ts" />
+    <None Remove="ClientApp\src\app\Shared\OverlayProgress\Overlay\overlay.module.ts" />
+    <None Remove="ClientApp\src\app\Shared\OverlayProgress\Overlay\overlay.service.spec.ts" />
+    <None Remove="ClientApp\src\app\Shared\OverlayProgress\Overlay\overlay.service.ts" />
+    <None Remove="ClientApp\src\app\Shared\OverlayProgress\Spinner\progress-spinner\progress-spinner.component.css" />
+    <None Remove="ClientApp\src\app\Shared\OverlayProgress\Spinner\progress-spinner\progress-spinner.component.html" />
+    <None Remove="ClientApp\src\app\Shared\OverlayProgress\Spinner\progress-spinner\progress-spinner.component.spec.ts" />
+    <None Remove="ClientApp\src\app\Shared\OverlayProgress\Spinner\progress-spinner\progress-spinner.component.ts" />
+    <None Remove="ClientApp\src\app\Shared\OverlayProgress\Spinner\progress-spinner\progress-spinner.module.ts" />
+    <None Remove="ClientApp\src\app\Shared\services\alert.service.spec.ts" />
+    <None Remove="ClientApp\src\app\Shared\services\alert.service.ts" />
+    <None Remove="ClientApp\src\app\Shared\services\Attachments\Attachment.service.spec.ts" />
+    <None Remove="ClientApp\src\app\Shared\services\CrudOperationsServ.service.spec.ts" />
+    <None Remove="ClientApp\src\app\Shared\services\CrudOperationsServ.service.ts" />
+    <None Remove="ClientApp\src\app\Shared\services\helper.service.ts" />
+    <None Remove="ClientApp\src\assets\.gitkeep" />
+    <None Remove="ClientApp\src\assets\css\AngularMaterialStyle-rtl.css" />
+    <None Remove="ClientApp\src\assets\css\AngularMaterialStyle.css" />
+    <None Remove="ClientApp\src\assets\css\bootstrap.min.css" />
+    <None Remove="ClientApp\src\assets\css\bootstrap.rtl.css" />
+    <None Remove="ClientApp\src\assets\css\fullcalendar.min.css" />
+    <None Remove="ClientApp\src\assets\css\images\ui-icons_444444_256x240.png" />
+    <None Remove="ClientApp\src\assets\css\images\ui-icons_555555_256x240.png" />
+    <None Remove="ClientApp\src\assets\css\images\ui-icons_777620_256x240.png" />
+    <None Remove="ClientApp\src\assets\css\images\ui-icons_777777_256x240.png" />
+    <None Remove="ClientApp\src\assets\css\images\ui-icons_cc0000_256x240.png" />
+    <None Remove="ClientApp\src\assets\css\images\ui-icons_ffffff_256x240.png" />
+    <None Remove="ClientApp\src\assets\css\jquery-calendar.min.css" />
+    <None Remove="ClientApp\src\assets\css\jquery-ui.min.css" />
+    <None Remove="ClientApp\src\assets\css\jquery.dataTables.min.css" />
+    <None Remove="ClientApp\src\assets\css\jquery.datetimepicker.min.css" />
+    <None Remove="ClientApp\src\assets\css\jquery.fonticonpicker.bootstrap.min.css" />
+    <None Remove="ClientApp\src\assets\css\jquery.fonticonpicker.grey.min.css" />
+    <None Remove="ClientApp\src\assets\css\jquery.fonticonpicker.min.css" />
+    <None Remove="ClientApp\src\assets\css\multiselect-dropdown.css" />
+    <None Remove="ClientApp\src\assets\css\owl.carousel.min.css" />
+    <None Remove="ClientApp\src\assets\css\owl.theme.default.min.css" />
+    <None Remove="ClientApp\src\assets\css\select2.min.css" />
+    <None Remove="ClientApp\src\assets\css\simplebar.min.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css-pro\pro.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css-pro\pro.min.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\all.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\all.min-pro.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\all.min.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\brands.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\brands.min.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\fontawesome.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\fontawesome.min.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\regular.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\regular.min.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\solid.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\solid.min.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\svg-with-js.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\svg-with-js.min.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\v4-shims.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\css\v4-shims.min.css" />
+    <None Remove="ClientApp\src\assets\font-awesome\index.html" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-brands-400.eot" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-brands-400.svg" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-brands-400.ttf" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-brands-400.woff" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-regular-400.eot" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-regular-400.svg" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-regular-400.ttf" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-regular-400.woff2" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-solid-900.eot" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-solid-900.svg" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-solid-900.ttf" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-solid-900.woff" />
+    <None Remove="ClientApp\src\assets\font-awesome\webfonts\fa-solid-900.woff2" />
+    <None Remove="ClientApp\src\assets\fonts\arabic-font\OFL.txt" />
+    <None Remove="ClientApp\src\assets\fonts\arabic-font\Tajawal-Black.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\arabic-font\Tajawal-Bold.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\arabic-font\Tajawal-ExtraBold.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\arabic-font\Tajawal-ExtraLight.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\arabic-font\Tajawal-Light.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\arabic-font\Tajawal-Medium.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\arabic-font\Tajawal-Regular.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\assets-font\asset-Font.eot" />
+    <None Remove="ClientApp\src\assets\fonts\assets-font\asset-Font.svg" />
+    <None Remove="ClientApp\src\assets\fonts\assets-font\asset-Font.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\assets-font\asset-Font.woff" />
+    <None Remove="ClientApp\src\assets\fonts\assets-font\assetFont.css" />
+    <None Remove="ClientApp\src\assets\fonts\cleaning-font\cleaning-font.css" />
+    <None Remove="ClientApp\src\assets\fonts\cleaning-font\cleaning-font.eot" />
+    <None Remove="ClientApp\src\assets\fonts\cleaning-font\cleaning-font.svg" />
+    <None Remove="ClientApp\src\assets\fonts\cleaning-font\cleaning-font.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\cleaning-font\cleaning-font.woff" />
+    <None Remove="ClientApp\src\assets\fonts\contract-font\contract-font.eot" />
+    <None Remove="ClientApp\src\assets\fonts\contract-font\contract-font.svg" />
+    <None Remove="ClientApp\src\assets\fonts\contract-font\contract-font.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\contract-font\contract-font.woff" />
+    <None Remove="ClientApp\src\assets\fonts\glyphicons-halflings-regular.eot" />
+    <None Remove="ClientApp\src\assets\fonts\glyphicons-halflings-regular.svg" />
+    <None Remove="ClientApp\src\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\glyphicons-halflings-regular.woff" />
+    <None Remove="ClientApp\src\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <None Remove="ClientApp\src\assets\fonts\iconpicker.eot" />
+    <None Remove="ClientApp\src\assets\fonts\iconpicker.svg" />
+    <None Remove="ClientApp\src\assets\fonts\iconpicker.ttf" />
+    <None Remove="ClientApp\src\assets\fonts\iconpicker.woff" />
+    <None Remove="ClientApp\src\assets\i18n\ar.json" />
+    <None Remove="ClientApp\src\assets\i18n\ar.json" />
+    <None Remove="ClientApp\src\assets\i18n\en.json" />
+    <None Remove="ClientApp\src\assets\i18n\en.json" />
+    <None Remove="ClientApp\src\assets\jQuery.Gantt\css\gantt.css" />
+    <None Remove="ClientApp\src\assets\jQuery.Gantt\img\grid.png" />
+    <None Remove="ClientApp\src\assets\jQuery.Gantt\img\icon_sprite.png" />
+    <None Remove="ClientApp\src\assets\jQuery.Gantt\img\slider_handle.png" />
+    <None Remove="ClientApp\src\assets\jQuery.Gantt\js\dataDaysEnh.js" />
+    <None Remove="ClientApp\src\assets\jQuery.Gantt\js\dataHours.js" />
+    <None Remove="ClientApp\src\assets\jQuery.Gantt\js\jquery.fn.gantt.js" />
+    <None Remove="ClientApp\src\assets\jQuery.Gantt\js\jquery.fn.gantt.min.js" />
+    <None Remove="ClientApp\src\assets\jstree\jstree.js" />
+    <None Remove="ClientApp\src\assets\jstree\jstree.min.js" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default-dark\32px.png" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default-dark\40px.png" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default-dark\style.css" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default-dark\style.min.css" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default-dark\throbber.gif" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default\32px.png" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default\40px.png" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default\style.css" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default\style.min.css" />
+    <None Remove="ClientApp\src\assets\jstree\themes\default\throbber.gif" />
+    <None Remove="ClientApp\src\assets\js\bootstrap-multiselect.js" />
+    <None Remove="ClientApp\src\assets\js\bootstrap.min.js" />
+    <None Remove="ClientApp\src\assets\js\chart.js" />
+    <None Remove="ClientApp\src\assets\js\chartjs-plugin-labels.js" />
+    <None Remove="ClientApp\src\assets\js\dataTables.checkboxes.min.js" />
+    <None Remove="ClientApp\src\assets\js\dataTables.colReorder.min.js" />
+    <None Remove="ClientApp\src\assets\js\dataTables.fixedColumns.min.js" />
+    <None Remove="ClientApp\src\assets\js\dataTables.fixedHeader.min.js" />
+    <None Remove="ClientApp\src\assets\js\datatables.min.js" />
+    <None Remove="ClientApp\src\assets\js\dataTables.rowReorder.min.js" />
+    <None Remove="ClientApp\src\assets\js\dataTables.treeGrid.js" />
+    <None Remove="ClientApp\src\assets\js\datetime-moment.js" />
+    <None Remove="ClientApp\src\assets\js\echarts.min.js" />
+    <None Remove="ClientApp\src\assets\js\es.js" />
+    <None Remove="ClientApp\src\assets\js\fullcalendar.min.js" />
+    <None Remove="ClientApp\src\assets\js\jquery-3.3.1.min.js" />
+    <None Remove="ClientApp\src\assets\js\jquery-3.3.1.min.map" />
+    <None Remove="ClientApp\src\assets\js\jquery-ui.js" />
+    <None Remove="ClientApp\src\assets\js\jquery-ui.min.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.dataTables.min.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.datetimepicker.full.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.datetimepicker.full.min.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.datetimepicker.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.datetimepicker.min.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.fonticonpicker.min.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.mask.min.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.mjs.nestedSortable.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.treegrid.bootstrap3.js" />
+    <None Remove="ClientApp\src\assets\js\jquery.treegrid.min.js" />
+    <None Remove="ClientApp\src\assets\js\locales-all.min.js" />
+    <None Remove="ClientApp\src\assets\js\moment.min.js" />
+    <None Remove="ClientApp\src\assets\js\owl.carousel.min.js" />
+    <None Remove="ClientApp\src\assets\js\popper.js" />
+    <None Remove="ClientApp\src\assets\js\popper.min.js" />
+    <None Remove="ClientApp\src\assets\js\select2.min.js" />
+    <None Remove="ClientApp\src\assets\js\simplebar.min.js" />
+    <None Remove="ClientApp\src\assets\js\tooltip.js" />
+    <None Remove="ClientApp\src\assets\js\tooltip.min.js" />
+    <None Remove="ClientApp\src\assets\js\tree-table.js" />
+    <None Remove="ClientApp\src\assets\loader\jajaxloader.js" />
+    <None Remove="ClientApp\src\assets\loader\thecube.css" />
+    <None Remove="ClientApp\src\assets\loader\thecube.js" />
+    <None Remove="ClientApp\src\environments\environment.prod.ts" />
+    <None Remove="ClientApp\src\environments\environment.ts" />
+    <None Remove="ClientApp\src\favicon.ico" />
+    <None Remove="ClientApp\src\index.html" />
+    <None Remove="ClientApp\src\karma.conf.js" />
+    <None Remove="ClientApp\src\main.ts" />
+    <None Remove="ClientApp\src\polyfills.ts" />
+    <None Remove="ClientApp\src\styles.css" />
+    <None Remove="ClientApp\src\styles.scss" />
+    <None Remove="ClientApp\src\test.ts" />
+    <None Remove="ClientApp\src\tsconfig.app.json" />
+    <None Remove="ClientApp\src\tsconfig.app.json" />
+    <None Remove="ClientApp\src\tsconfig.server.json" />
+    <None Remove="ClientApp\src\tsconfig.server.json" />
+    <None Remove="ClientApp\src\tsconfig.spec.json" />
+    <None Remove="ClientApp\src\tsconfig.spec.json" />
+    <None Remove="ClientApp\src\tslint.json" />
+    <None Remove="ClientApp\src\tslint.json" />
+    <None Remove="ClientApp\tsconfig.app.json" />
+    <None Remove="ClientApp\tsconfig.app.json" />
+    <None Remove="ClientApp\tsconfig.json" />
+    <None Remove="ClientApp\tsconfig.json" />
+    <None Remove="ClientApp\tsconfig.spec.json" />
+    <None Remove="ClientApp\tsconfig.spec.json" />
+    <None Remove="ClientApp\tslint.json" />
+    <None Remove="ClientApp\tslint.json" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Files\" />
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="wwwroot\Categories\" />
+    <Folder Include="wwwroot\JournalEntry\" />
+    <Folder Include="wwwroot\Barcode\" />
+    <Folder Include="wwwroot\ItemCards\" />
+    <Folder Include="wwwroot\FilesOfPurchases\" />
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="wwwroot\Reciepts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\App_Data\Badges.frx" />
+    <None Include="wwwroot\App_Data\Cascaded Data Filtering.frx" />
+    <None Include="wwwroot\App_Data\Chart.frx" />
+    <None Include="wwwroot\App_Data\Complex (Hyperlinks, Outline, TOC).frx" />
+    <None Include="wwwroot\App_Data\Complex (Master-detail + Group).frx" />
+    <None Include="wwwroot\App_Data\CustomresInvioceReport.frx" />
+    <None Include="wwwroot\App_Data\Dialog Elements.frx" />
+    <None Include="wwwroot\App_Data\Drill-Down Groups.frx" />
+    <None Include="wwwroot\App_Data\Filtering with CheckedListBox.frx" />
+    <None Include="wwwroot\App_Data\Filtering with Ranges.frx" />
+    <None Include="wwwroot\App_Data\Handle Dialog Forms.frx" />
+    <None Include="wwwroot\App_Data\Hello, FastReport!.frx" />
+    <None Include="wwwroot\App_Data\Hyperlinks, Bookmarks.frx" />
+    <None Include="wwwroot\App_Data\Index.html" />
+    <None Include="wwwroot\App_Data\Index2.html" />
+    <None Include="wwwroot\App_Data\Interactive Report, 2-in-1.frx" />
+    <None Include="wwwroot\App_Data\InvioceReport.frx" />
+    <None Include="wwwroot\App_Data\InvoicePrint.pdf" />
+    <None Include="wwwroot\App_Data\IronPdfprint.pdf" />
+    <None Include="wwwroot\App_Data\Labels.frx" />
+    <None Include="wwwroot\App_Data\Mail Merge.frx" />
+    <None Include="wwwroot\App_Data\nwind.xml" />
+    <None Include="wwwroot\App_Data\Persons.frx" />
+    <None Include="wwwroot\App_Data\PersonsPrint.pdf" />
+    <None Include="wwwroot\App_Data\Polygon.frx" />
+    <None Include="wwwroot\App_Data\POS.frx" />
+    <None Include="wwwroot\App_Data\POStest.frx" />
+    <None Include="wwwroot\App_Data\Print Entered Value.frx" />
+    <None Include="wwwroot\App_Data\print.docx" />
+    <None Include="wwwroot\App_Data\PurchasesInvioceReport.frx" />
+    <None Include="wwwroot\App_Data\SalesInvioceReport.frx" />
+    <None Include="wwwroot\App_Data\Simple List.frx" />
+    <None Include="wwwroot\App_Data\Simple List2.frx" />
+    <None Include="wwwroot\Reports\ar\POSInvoice.frx" />
+    <None Include="wwwroot\Reports\ar\PurchasesInvioce.frx" />
+    <None Include="wwwroot\Reports\ar\ReturnPOSInvoice.frx" />
+    <None Include="wwwroot\Reports\ar\ReturnPurshaseInvioce.frx" />
+    <None Include="wwwroot\Reports\ar\ReturnSalesInvioce.frx" />
+    <None Include="wwwroot\Reports\ar\SalesInvioce.frx" />
+    <None Include="wwwroot\Reports\en\POSInvoice.frx" />
+    <None Include="wwwroot\Reports\en\PurchasesInvioce.frx" />
+    <None Include="wwwroot\Reports\en\ReturnPOSInvoice.frx" />
+    <None Include="wwwroot\Reports\en\ReturnPurshaseInvioce.frx" />
+    <None Include="wwwroot\Reports\en\ReturnSalesInvioce.frx" />
+    <None Include="wwwroot\Reports\en\SalesInvioce.frx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.Application\App.Application.csproj" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <!--<Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />-->
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+	
+
+</Project>

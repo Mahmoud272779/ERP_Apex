@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.Api</name>
+    </assembly>
+    <members>
+        <member name="F:App.Api.Controllers.BaseController.ApiControllerBase.ResponseHandler">
+            <summary>
+            Token Business
+            </summary>
+            <summary>
+            Response Handler
+            </summary>
+        </member>
+        <member name="M:App.Api.Controllers.BaseController.ApiControllerBase.#ctor(Attendleave.Erp.Core.APIUtilities.IActionResultResponseHandler)">
+            <inheritdoc />
+        </member>
+        <member name="F:App.Api.Controllers.BaseController.ApiControllerBase._mediator">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

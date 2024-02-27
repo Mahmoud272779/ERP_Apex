@@ -1,0 +1,104 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<LangVersion>preview</LangVersion>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <Optimize>False</Optimize>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Handlers\Purchase\Command\AddPurchaseService1.cs" />
+    <Compile Remove="Handlers\Purchase\Command\UpdatePurchaseService1.cs" />
+    <Compile Remove="Handlers\Purchase\PurchaseRequest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\Common\" />
+    <Folder Include="Handlers\Invoices\PurchaseOrder\TransferToPurchases\" />
+    <Folder Include="Handlers\Purchase\Command\" />
+    <Folder Include="Handlers\Purchase\Query\" />
+    <Folder Include="Handlers\Transfer\incomingTransfer\Command\" />
+    <Folder Include="Handlers\View\" />
+    <Folder Include="Handlers\Transaction\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Core" Version="1.24.0" />
+    <PackageReference Include="BarcodeLib" Version="3.0.0" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="FastReport.Data.Excel" Version="2023.2.0" />
+    <PackageReference Include="FastReport.OpenSource" Version="2023.2.29" />
+    <PackageReference Include="FastReport.OpenSource.Data.MsSql" Version="2021.4.0" />
+    <PackageReference Include="FastReport.OpenSource.Export.PdfSimple" Version="2023.2.29" />
+    <PackageReference Include="FastReport.OpenSource.Web" Version="2023.2.29" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.0.1" />
+    <PackageReference Include="Hangfire" Version="1.8.0" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="MessagingToolkit.QRCode" Version="1.3.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+    <PackageReference Include="Neodynamic.SDK.WebClientPrint" Version="6.0.0" />
+    <PackageReference Include="Net.Codecrete.QrCodeGenerator" Version="1.4.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="108.0.1" />
+    <PackageReference Include="Select.Pdf.NetCore" Version="23.1.0" />
+    <PackageReference Include="SendGrid" Version="9.28.1" />
+    <PackageReference Include="SkiaSharp.QrCode" Version="0.6.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.18.0" />
+    <PackageReference Include="System.IO.Ports" Version="6.0.0" />
+    <PackageReference Include="System.Management" Version="6.0.0" />
+    <PackageReference Include="System.Runtime.Caching" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.Domain\App.Domain.csproj" />
+    <ProjectReference Include="..\App.Infrastructure\App.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FastReport">
+      <HintPath>C:\Users\khaled\Documents\Received Files\0-Publish\0-Publish\FastReport.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DataSet\ReportData.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReportData.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataSet\ReportData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportData.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+	<ItemGroup>
+		<RuntimeHostConfigurationOption Include="System.Drawing.EnableUnixSupport" Value="true" />
+	</ItemGroup>
+
+</Project>

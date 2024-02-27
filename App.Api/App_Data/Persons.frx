@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/22/2022 12:33:15" ReportInfo.Modified="11/28/2022 18:17:51" ReportInfo.CreatorVersion="2022.3.11.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Persons" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFnTb1GUMvYoRyuDW027GnR8uqnghnTWkecUuHkUBUdChWaGUHtg2jFbCiqTsuTcgmBj6ciPGj7peczoy/B8EAhi/0SwxJ51w3nzzoGXMvmFxNuLRRQTwV/IQJm8t/Bo8b">
+      <TableDataSource Name="InvPersons" DataType="System.Int32" Enabled="true" TableName="InvPersons">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Code" DataType="System.Int32"/>
+        <Column Name="ArabicName" DataType="System.String"/>
+        <Column Name="LatinName" DataType="System.String"/>
+        <Column Name="Type" DataType="System.Int32"/>
+        <Column Name="Status" DataType="System.Int32"/>
+        <Column Name="SalesManId" DataType="System.Int32"/>
+        <Column Name="ResponsibleAr" DataType="System.String"/>
+        <Column Name="ResponsibleEn" DataType="System.String"/>
+        <Column Name="Phone" DataType="System.String"/>
+        <Column Name="Fax" DataType="System.String"/>
+        <Column Name="Email" DataType="System.String"/>
+        <Column Name="TaxNumber" DataType="System.String"/>
+        <Column Name="AddressAr" DataType="System.String"/>
+        <Column Name="AddressEn" DataType="System.String"/>
+        <Column Name="CreditLimit" DataType="System.Double"/>
+        <Column Name="CreditPeriod" DataType="System.Int32"/>
+        <Column Name="DiscountRatio" DataType="System.Double"/>
+        <Column Name="SalesPriceId" DataType="System.Int32"/>
+        <Column Name="LessSalesPriceId" DataType="System.Int32"/>
+        <Column Name="IsCustomer" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="IsSupplier" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CanDelete" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="AddToAnotherList" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="CodeT" DataType="System.String"/>
+        <Column Name="BuildingNumber" DataType="System.String"/>
+        <Column Name="StreetName" DataType="System.String"/>
+        <Column Name="Neighborhood" DataType="System.String"/>
+        <Column Name="City" DataType="System.String"/>
+        <Column Name="Country" DataType="System.String"/>
+        <Column Name="PostalNumber" DataType="System.String"/>
+        <Column Name="FinancialAccountId" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Left="302.4" Top="9.45" Width="103.95" Height="18.9" Text="Persons" HorzAlign="Center" Font="Arial, 15.75pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35" Border.Lines="All" Fill.Color="DimGray" CanShrink="true">
+      <TextObject Name="Text3" Left="9.45" Width="94.5" Height="18.9" Text="Id" HorzAlign="Center" Font="Arial, 14.25pt, style=Bold"/>
+      <TextObject Name="Text6" Left="132.3" Width="94.5" Height="18.9" Text="Code" HorzAlign="Center" Font="Arial, 14.25pt, style=Bold"/>
+      <TextObject Name="Text10" Left="444.15" Width="113.4" Height="18.9" Text="LatinName" HorzAlign="Center" Font="Arial, 14.25pt, style=Bold"/>
+      <TextObject Name="Text13" Left="614.25" Width="94.5" Height="28.35" Text="Type" HorzAlign="Center" Font="Arial, 14.25pt, style=Bold"/>
+      <TextObject Name="Text4" Left="255.15" Width="141.75" Height="18.9" Text="ArabicName" HorzAlign="Center" Font="Arial, 14.25pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="37.8" Border.Lines="All" Fill.Color="Gainsboro" DataSource="InvPersons">
+      <TextObject Name="Text2" Top="9.45" Width="103.95" Height="18.9" Text="[InvPersons.Id]" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text5" Left="122.85" Top="9.45" Width="103.95" Height="18.9" Text="[InvPersons.Code]" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text9" Left="434.7" Top="9.45" Width="151.2" Height="18.9" Text="[InvPersons.LatinName]" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text12" Left="576.45" Top="9.45" Width="170.1" Height="18.9" Text="[InvPersons.Type]" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text8" Left="245.7" Top="9.45" Width="179.55" Height="18.9" Text="[InvPersons.ArabicName]" HorzAlign="Center" Font="Arial, 14.25pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+</Report>

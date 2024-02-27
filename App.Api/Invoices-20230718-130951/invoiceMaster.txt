@@ -1,0 +1,2 @@
+invoiceCode;BookIndex;InvoiceDate;SerialTexts;StoreId;Notes;TotalPrice;SalesManId;PriceListId;PersonId;TotalDiscountValue;TotalDiscountRatio;Net;Paid;ActualNet;Remain;VirualPaid;TotalAfterDiscount;TotalVat;DiscountType;ActiveDiscount;ApplyVat;PriceWithVat;ParentInvoiceCode;recType;reported_new;updated;sysCode
+1-1-POS-11;;2023/07/18 12:00:00 ص;;1;;50.000000;1;1;2;0.000000;0.000000;57.500000;57.500000;57.500000;0.000000;0.000000;50.000000;7.500000;0;1;1;0;;11;;;10

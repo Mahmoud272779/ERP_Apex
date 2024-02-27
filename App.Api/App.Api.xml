@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.Api</name>
+    </assembly>
+    <members>
+        <member name="F:App.Api.Controllers.BaseController.ApiControllerBase.ResponseHandler">
+            <summary>
+            Token Business
+            </summary>
+            <summary>
+            Response Handler
+            </summary>
+        </member>
+        <member name="M:App.Api.Controllers.BaseController.ApiControllerBase.#ctor(Attendleave.Erp.Core.APIUtilities.IActionResultResponseHandler)">
+            <inheritdoc />
+        </member>
+        <member name="F:App.Api.Controllers.BaseController.ApiControllerBase._mediator">
+            <inheritdoc />
+        </member>
+        <member name="T:App.Api.Controllers.Process.FinancialAccountController">
+            <remarks>
+            شجرة الحسابات العامة
+            !</remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.CreateNewFinancialAccount(App.Domain.Models.Security.Authentication.Request.FinancialAccountParameter)">
+            <remarks>
+            This is API for creating a new financial Account in the GL Tree<br/>
+            to use this api you have to insert some of the data :<br/>
+            1-LatinName as string field<br/>
+            2-ArabicName as string field<br/>
+            3-AccountCode as string field this field is optinal you use it only when you use auto coding<br/>
+            4-CurrencyId as int field this is the id of the currency to use you can get it from http://gl.ttechapps.info/api/GeneralLedger/Currency/GetAllCurrency API<br/>
+            5-Status as int field this is the value of the statues 1 for active and 2 for deactivate the account <br/>
+            6-FA_Nature as int field this is the value of the FinancialAccount Nature as Depit or Credit use 1 for Depitor and 2 for creditor<br/>
+            7-FinalAccount as int field this is the value of the final account use 1 for budget "ميزانية" and 2 for income statement "قائمة الدخل"<br/>
+            8-ParentId as int field has self relationship with table his self we use it only when we add a child account and if we add a main account we set it as Empty value <br/>
+            9-Notes as string field use it to add notes for the account<br/>
+            10-IsMain as boolean field use it as true to set the account as main account to be folder for subs account or false to make it sub account <br/>
+            11-BranchesId as array of int we use to to set the branche  that will use this account<br/>
+            12-CostCenterId as array of int we use it to set the cost centers of this account we<br/>
+            Created by Ahmed Atif<br/>
+            !</remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.UpdateFinancialAccount(App.Domain.Models.Security.Authentication.Request.UpdateFinancialAccountParameter)">
+            <remarks>
+             This is API for updating and edit the information of that accountant account in the GL Tree <br/>
+             to use this API you have to insert some of the data : <br/>
+             1-LatinName as string field to edit the english account name<br/>
+             2-ArabicName as string field to edit the arabic account name <br/>
+             3-CurrencyId as int field to edit the currency of the account<br/>
+             4-Status as int field to edit the statues of the account statues 1 for active and 2 for deactivate the account <br/>
+             5-FA_Nature as int field to eidt the nature of the account Nature as Depit or Credit use 1 for Depitor and 2 for creditor<br/>
+             6-FinalAccount as int field to eidt the final account use 1 for budget "ميزانية" and 2 for income statement "قائمة الدخل"<br/>
+             7-ParentId as int field to edit the parent id of the the current account this  field has self relationship with table his self we use it only when we add a child account and if we add a main account we set it as Empty value <br/>
+             8-Notes as string field use it to add or edit notes for the account<br/>
+             9-IsMain as boolean field use it as true to set the account as main account to be folder for subs account or false to make it sub account <br/>
+             10-CostCenterId as array of int use this to add or edit cost centers of for the account <br/> 
+             11-BranchesId as array of int use this to add or edit the branchs that will use this account
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.UpdateFinancialAccountsStatus(App.Domain.Models.Security.Authentication.Request.SharedRequestDTOs.UpdateStatus)">
+            <remarks>
+            This is the API for editing the Statues of multi Financial Account<br/>
+            to use this api you have to inset some data :<br/>
+            1- Id as array of int  this is the id of the financial Accounts that you want to change the statues of it<br/>
+            2-Status as int field this the statues of the account 1 for active and 2 for deactivate the account <br/>
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.DeleteFinancialAccount(System.Int32[])">
+            <remarks>
+            This is API for deleting multi Financial Accounts <br/>
+            to use this API you have to insert Financial Accounts ids as array of int you can just delete one account by only insrt one id in the array<br/>
+            Note:   make sure the account is not used before deleteing because this api wont work if you send one account used in the system
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.GetFinancialAccountById(System.Int32)">
+            <remarks>
+            This API for getting financial Account by id to use this api you have to send the id as query parm 
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.GetAllFinancialAccount(App.Domain.Models.Security.Authentication.Response.FA_Search,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <remarks>
+            This is the API to getting all finacial Account fot the GL accountant tree<br/>
+            to use this API you have to insrt some Data:<br/>
+            1-FA_Nature as int field its optional field use it to choose the statues of the accounts you wanna get to get all Accounts insert 0 to get activated Accounts insert 1 to get deactivated Accounts insert 2<br/>
+            FA_Nature  as int field its optional field use it to choose the nature of the accounts you wanna get to get all Accounts insert 0 to get activated accounts insert 1 to get deactivated accounts insert 2<br/>
+            CostCenter as int field its optional field use it to select the accounts by the cost center id<br/>
+            SearchCriteria as string field and its optional use it to search in accounts by name arabic or english or account code
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.GetAllFinancialAccountHistory(System.Int32)">
+            <remarks>
+            This API to get Financial Account History, To use it just send the id of the account as query parm
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.MoveFinancialAccount(App.Domain.Models.Security.Authentication.Request.MoveFinancial)">
+            <remarks>
+            This API to move the Account in the tree by drag and drop<br/>
+            to use this api you need to send some data:<br/>
+            1-FinancialIdWillMove as int field its requred and this is the id of the account you wanna move<br/>
+            2-FinancialIdMovedTo as int field it requred and this is the id of the account you wanna move to<br/>
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.GetFinancialAccountDropDown(System.String,System.Int32,System.Int32,System.Nullable{System.Boolean})">
+            <remarks>
+            This API to get drop down list of financial accounts<br/>
+            to use this api you need to send some data:<br/>
+            1-SearchCriteria as string field its optional use it to find account by arabic name or english name or account code<br/>
+            2-PageSize as int field it requred this field to get the size of the page<br/>
+            3-PageNumber as int field it requred this field to get the number of the page<br/>
+            4-isMain as boolean field it optional this field to get main or sub account true for main false for sub<br/>
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.RecodingFinancialAccount">
+            <remarks>
+            This API to to recoding financial account this api using the Auto coding column in database to recoding the accounts code<br/>
+            to use this api you need to just excute the api and it will auto recoding the accounts code<br/>
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.Process.FinancialAccountController.GetAccountInformation(System.Int32)">
+            <remarks>
+            This API to to the account information<br/>
+            to use this api you need to send the id of the account as query parm and excute the api<br/>
+            Created by Ahmed Atif<br/>
+            </remarks>
+        </member>
+        <member name="M:App.Api.Controllers.JournalEntryController.addEntryFunds(App.Domain.Models.Security.Authentication.Request.addEntryFunds)">
+            <summary>
+            To get the entry funds use GetJournalEntryById api with Id -1
+            </summary>
+        </member>
+    </members>
+</doc>
